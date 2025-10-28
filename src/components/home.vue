@@ -176,7 +176,7 @@ const profile = ref({
   contact: {
     phone: "0123 456 789",
     email: "lequockha.electrician@gmail.com",
-    location: "Long Xuyên, An Giang",
+    location: "Châu Thành, An Giang",
     hours: "7:00 - 18:00 (T2-T7)",
   },
 });
