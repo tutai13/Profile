@@ -174,8 +174,8 @@ const profile = ref({
     },
   ],
   contact: {
-    phone: "0123 456 789",
-    email: "lequockha.electrician@gmail.com",
+    phone: "038 5258524",
+    email: "lequockha@gmail.com",
     location: "Châu Thành, An Giang",
     hours: "7:00 - 18:00 (T2-T7)",
   },
