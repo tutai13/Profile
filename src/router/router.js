@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router";
 import home from "../components/home.vue";
-const routes = [{ path: "/", name: "home", component: home }];
+import thiepmoi from "../components/thiepmoi.vue";
+const routes = [{ path: "/", name: "home", component: home },
+                 { path: "/thiepmoi", name: "thiepmoi", component: thiepmoi }];
 const router = createRouter({
   history: createWebHistory(),
   routes,
