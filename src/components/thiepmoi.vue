@@ -267,7 +267,7 @@ const vScrollAnimate = {
   align-items: center;
   padding: 3rem 2rem 2rem;
   position: relative;
-  background: linear-gradient(180deg, #4caf50);
+  background: linear-gradient(180deg, #4caf50 0%, #4caf50 100%);
 }
 .hero::before { content:'🎈'; position:absolute; top:1rem; left:7rem; font-size:2rem;  animation:float 3s ease-in-out infinite; }
 .hero::after { content:'🎈'; position:absolute; top:1rem; right:7rem; font-size:2rem;  animation:float 3s ease-in-out infinite 1.5s; }
