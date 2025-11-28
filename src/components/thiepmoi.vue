@@ -89,7 +89,28 @@
             </div>
           </div>
         </div>
-
+                <!-- 3D CYLINDER IMAGE GALLERY - Rotating Carousel -->
+        <div class="section-block gallery-3d-block" v-scroll-animate data-delay="3.5">
+          <p class="label" style="margin-bottom: 20px;">Khoảnh khắc của bé</p>
+          
+          <div class="cylinder-gallery-container">
+            <div class="cylinder-scene">
+              <div class="cylinder-carousel" :style="{ transform: `rotateY(${rotation}deg)` }">
+                <div 
+                  class="cylinder-item" 
+                  v-for="(img, index) in galleryImages" 
+                  :key="index"
+                  :style="{ 
+                    transform: `rotateY(${index * itemAngle}deg) translateZ(${radius}px)`,
+                    backgroundImage: `url(${img})`
+                  }"
+                >
+                  <!-- Có thể thêm overlay hoặc caption nếu muốn -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <!-- LOCATION SECTION -->
         <div class="section-block location-block" v-scroll-animate data-delay="4">
           <p class="label">Địa điểm</p>
@@ -106,6 +127,11 @@
           </div>
         </div>
         <footer class="footer" v-scroll-animate data-delay="8">Liên hệ: {{ contact }} — Lưu ý: mặc trang phục tươi sáng.</footer>
+        <!-- CHỈ MỘT CHỮ THANK YOU – ĐẸP & SANG -->
+        <div class="thank-you-simple" v-scroll-animate data-delay="5.5">
+          ❖ Thank You  ❖
+          <span class="underline"></span>
+        </div>
       </section>
     </div>
   </div>
@@ -114,9 +140,9 @@
 <script setup>
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 
-
+// === DỮ LIỆU CHUNG ===
 const date = ref('2025-12-07')
-const location = ref('95 Đồng Kè, Hoà Khánh Bắc, Liên Chiểu, Đà Nẵng , Việt Nam')
+const location = ref('95 Đồng Kè, Hoà Khánh Bắc, Liên Chiểu, Đà Nẵng, Việt Nam')
 const contact = ref('0123 456 789')
 const image = ref('')
 
@@ -130,7 +156,7 @@ const calendarMonth = computed(() => {
   return months[Number(date.value.split('-')[1]) - 1]
 })
 
-// Countdown LED
+// === COUNTDOWN LED ===
 const countdownDays = ref('00')
 const countdownHours = ref('00')
 const countdownMinutes = ref('00')
@@ -145,7 +171,7 @@ function updateCountdown() {
 
   if (diff <= 0) {
     countdownDays.value = countdownHours.value = countdownMinutes.value = countdownSeconds.value = '00'
-    countdown.value = 'Đã đến giờ tổ chức 🎉'
+    countdown.value = 'Đã đến giờ tổ chức'
     clearInterval(timerInterval)
     return
   }
@@ -161,16 +187,38 @@ function updateCountdown() {
   countdownSeconds.value = String(seconds).padStart(2, '0')
 }
 
+// === 3D CYLINDER GALLERY – TRÒN TRỊA HOÀN HẢO ===
+const rotation = ref(0)
+
+// Tăng lên ít nhất 18–20 tấm (càng nhiều càng tròn)
+// Dùng cùng 1 ảnh lặp lại là đẹp nhất
+const galleryImages = ref(Array(20).fill('https://i.pinimg.com/originals/1d/4e/ce/1d4ecef2334c51f3b8b0ca95875b18e5.jpg'))
+
+const itemCount = computed(() => galleryImages.value.length)
+const itemAngle = computed(() => 360 / itemCount.value)
+
+// Bán kính lớn hơn + cố định → trụ to và tròn thật
+const radius = computed(() => 680)
+
+let autoRotateInterval = null
+const startAutoRotate = () => {
+  autoRotateInterval = setInterval(() => {
+    rotation.value -= 0.35   // chậm mịn hơn một chút
+  }, 50)
+}
+// === MOUNTED & UNMOUNTED ===
 onMounted(() => {
   updateCountdown()
   timerInterval = setInterval(updateCountdown, 1000)
+  startAutoRotate()
 })
 
 onUnmounted(() => {
-  clearInterval(timerInterval)
+  if (timerInterval) clearInterval(timerInterval)
+  if (autoRotateInterval) clearInterval(autoRotateInterval)
 })
 
-// Directive scroll animation
+// === DIRECTIVE SCROLL ANIMATION ===
 const vScrollAnimate = {
   mounted(el) {
     const delayIndex = el.dataset.delay || 0
@@ -179,11 +227,12 @@ const vScrollAnimate = {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if(entry.isIntersecting){
+        if (entry.isIntersecting) {
           el.classList.add('show')
           observer.unobserve(el)
         }
-      }, { threshold: 0.1 }
+      },
+      { threshold: 0.1 }
     )
     observer.observe(el)
   }
@@ -560,4 +609,103 @@ const vScrollAnimate = {
   }
 }
 
+ /* === TRỤ XOAY 3D – TRÒN TRỊA HOÀN HẢO, NỐI LIỀN 100% === */
+.gallery-3d-block {
+  background: #f0fdfa;             /* Màu nền nhẹ nhàng, hợp với theme bé gái */
+  overflow: hidden;                /* Quan trọng: Ẩn phần ảnh bị tràn ra ngoài khi xoay */
+}
+
+/* Khu vực chứa toàn bộ không gian 3D */
+.cylinder-gallery-container {
+  width: 100%;
+  max-width: 1400px;                /* Giới hạn chiều rộng tối đa (đẹp trên mọi màn hình) */
+  height: 315px;                   /* Chiều cao cố định để ảnh vừa khung */
+  margin: 0 auto;                  /* Căn giữa theo chiều ngang */
+  perspective: 5000px;             /* Càng lớn → mắt người xem càng xa → cong càng sâu, trụ càng tròn */
+  perspective-origin: 50% 50%;     /* Điểm nhìn hơi lệch xuống dưới một chút để nhìn tự nhiên hơn */
+}
+
+/* Scene – không gian 3D chính */
+.cylinder-scene {
+  width: 100%;
+  height: 100%;
+  position: relative;              /* Làm gốc tọa độ cho các phần con absolute */
+  transform-style: preserve-3d;    /* BẮT BUỘC: giữ lại hiệu ứng 3D cho các phần con */
+}
+
+/* Cái carousel thực sự xoay tròn */
+.cylinder-carousel {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;    /* BẮT BUỘC: cho các tấm ảnh giữ được 3D */
+  transition: transform 0.1s linear; /* Làm xoay mượt mà */
+}
+
+/* Mỗi tấm ảnh riêng lẻ */
+.cylinder-item {
+  position: absolute;              /* Đặt vị trí trong không gian 3D */
+  top: 20px;                       /* Cách mép trên một chút để căn giữa dọc đẹp hơn */
+  left: 50%;                       /* Đặt tâm ngang ở giữa */
+  width: 215px;                    /* RỘNG HƠN RẤT NHIỀU so với bản cũ → che hết khe hở */
+  height: 300px;                   /* Cao hơn → tạo cảm giác trụ to */
+  margin-left: -70px;             /* Dịch ngược lại ½ width để căn giữa chính xác */
+  background-size: cover !important;     /* Ảnh phủ kín tấm */
+  background-position: center !important; /* Căn giữa ảnh */
+
+
+  backface-visibility: hidden;     /* Ẩn mặt sau khi xoay (rất quan trọng trong 3D) */
+  transform-style: preserve-3d;    /* Giữ 3D cho các phần con (nếu có) */
+
+  /* ============================================= */
+  /* 3 DÒNG THẦN THÁNH – LÀM CÁC ẢNH NỐI LIỀN HOÀN TOÀN */
+  /* ============================================= */
+  -webkit-mask-image: radial-gradient(ellipse 170% 130% at 50% 50%, black 66%, transparent 100%);
+          mask-image: radial-gradient(ellipse 170% 130% at 50% 50%, black 66%, transparent 100%);
+}
+
+/* Hiệu ứng ánh sáng nhẹ bao quanh mỗi tấm (đẹp hơn, tùy chọn) */
+.cylinder-item::before {
+  content: '';
+  position: absolute;
+  inset: -50px;                    /* Tràn ra ngoài tấm ảnh một chút */
+  border-radius: 44px;
+  background: linear-gradient(45deg, rgba(255,182,193,0.6), rgba(173,216,230,0.5)); /* hồng nhạt → xanh nhạt */
+  filter: blur(60px);              /* Làm mờ mạnh → tạo hiệu ứng glow */
+  opacity: 0.1;                   /* Độ trong suốt vừa đủ */
+  z-index: -1;                     /* Đặt sau tấm ảnh */
+  pointer-events: none;            /* Không cản chuột */
+}
+/* THANHYOU */
+.thank-you-simple {
+  font-size: 5rem;
+  font-weight: 900;
+  text-align: center;
+  margin: 50px 0;
+  width: 100%;                                    /* thêm */
+  background: linear-gradient(135deg, #047857);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 6px;
+}
+
+/* Gạch chân giả – hiển thị 100% dù có gradient */
+.thank-you-simple .underline {
+  position: absolute;
+  left: 50%;
+  bottom: 12px;                        /* chỉnh lên/xuống tùy ý */
+  transform: translateX(-50%);
+  width: 70%;
+  height: 6px;
+  background: linear-gradient(90deg, transparent, #047857, transparent);
+  border-radius: 3px;
+}
+
+/* Mobile */
+@media (max-width: 760px) {
+  .thank-you-simple { font-size: 2rem; margin: 90px auto 70px; }
+  .thank-you-simple .underline { bottom: 8px; height: 4px; }
+}
 </style> 
