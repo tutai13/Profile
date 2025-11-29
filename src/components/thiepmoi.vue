@@ -1,46 +1,69 @@
 <template>
   <div class="invite-root">
     <div class="card">
-   <!-- HERO SECTION -->
-<!-- HERO – 3 ẢNH ĐỨNG ĐẸP Y HỆT ẢNH MẪU -->
-<section class="hero">
-  <h1 class="subtitle" v-scroll-animate data-delay="0">Thiệp</h1>
-  <h1 class="title" v-scroll-animate data-delay="0.5">Mời Thôi Nôi</h1>
+      <!-- HERO SECTION -->
+      <section class="hero">
+        <h1 class="subtitle" v-scroll-animate data-delay="0">Thiệp</h1>
+        <h1 class="title" v-scroll-animate data-delay="0.5">Mời Thôi Nôi</h1>
 
-  <!-- 3 ảnh kiểu studio như ảnh mẫu -->
-  <div class="triple-photo" v-scroll-animate data-delay="1">
-    <div class="photo-frame">
-      <img src="https://i.pinimg.com/originals/1d/4e/ce/1d4ecef2334c51f3b8b0ca95875b18e5.jpg" alt="Bé Bình An 1" />
-    </div>
-    <div class="photo-frame middle">
-      <img src="https://i.pinimg.com/originals/1d/4e/ce/1d4ecef2334c51f3b8b0ca95875b18e5.jpg" alt="Bé Bình An 2" />
-    </div>
-    <div class="photo-frame">
-      <img src="https://i.pinimg.com/originals/1d/4e/ce/1d4ecef2334c51f3b8b0ca95875b18e5.jpg" alt="Bé Bình An 3" />
-    </div>
-  </div>
+        <!-- 3 ảnh đứng đẹp như mẫu -->
+        <div class="triple-photo" v-scroll-animate data-delay="1">
+          <div class="photo-frame">
+            <img
+              src="https://i.pinimg.com/originals/1d/4e/ce/1d4ecef2334c51f3b8b0ca95875b18e5.jpg"
+              alt="Bé Bình An 1"
+            />
+          </div>
+          <div class="photo-frame middle">
+            <img
+              src="https://i.pinimg.com/originals/1d/4e/ce/1d4ecef2334c51f3b8b0ca95875b18e5.jpg"
+              alt="Bé Bình An 2"
+            />
+          </div>
+          <div class="photo-frame">
+            <img
+              src="https://i.pinimg.com/originals/1d/4e/ce/1d4ecef2334c51f3b8b0ca95875b18e5.jpg"
+              alt="Bé Bình An 3"
+            />
+          </div>
+        </div>
 
-  <h2 class="baby" v-scroll-animate data-delay="2">Bé Bình An</h2>
-</section>
+        <h2 class="baby" v-scroll-animate data-delay="2">Bé Bình An</h2>
+      </section>
+
+      <!-- Tên bé trong khung đẹp -->
       <div class="baby-name-framed py-16" v-scroll-animate data-delay="1">
         <div class="name-frame mx-auto">
           <h2 class="name-text">Nguyễn Phương Bình An</h2>
         </div>
       </div>
-      <!-- SETTINGS / DISPLAY CONTENT -->
+
+      <!-- NỘI DUNG CHÍNH -->
       <section class="content" v-if="showSettings">
-                <!-- MESSAGE SECTION -->
-        <div class="section-block message-block" v-scroll-animate data-delay="5">
+        <!-- Lời nhắn -->
+        <div
+          class="section-block message-block"
+          v-scroll-animate
+          data-delay="5"
+        >
           <p class="label">Lời nhắn</p>
-          <p class="message">Thân mời bạn đến chung vui cùng gia đình chúng tôi trong ngày thôi nôi của bé. Rất mong sự hiện diện của bạn để buổi tiệc thêm ấm cúng.</p>
+          <p class="message">
+            Thân mời quý khách đến chung vui cùng gia đình chúng tôi trong ngày
+            thôi nôi của bé Bình An. Rất mong được đón tiếp quý khách để buổi
+            tiệc thêm phần ấm cúng và trọn vẹn.
+          </p>
         </div>
-        <!-- NGÀY SINH CỦA BÉ – KIỂU THIỆP THẬT SIÊU ĐẸP -->
-        <div class="section-block birth-real-card" v-scroll-animate data-delay="6">
+
+        <!-- Ngày sinh kiểu thiệp thật -->
+        <div
+          class="section-block birth-real-card"
+          v-scroll-animate
+          data-delay="6"
+        >
           <p class="label">Bé chào đời</p>
           <div class="birth-card">
             <div class="birth-title">TIỆC MỪNG THÔI NÔI</div>
             <div class="birth-time">VÀO LÚC: 17H00</div>
-            
             <div class="birth-date-row">
               <div class="birth-part">
                 <span class="birth-label">Thứ Năm</span>
@@ -53,21 +76,30 @@
               </div>
               <div class="birth-year-big">2025</div>
             </div>
-            
-
           </div>
         </div>
-        <!-- DATE SECTION - Calendar Style -->
-        <div class="section-block calendar-block" v-scroll-animate data-delay="2">
+
+        <!-- Lịch ngày tổ chức -->
+        <div
+          class="section-block calendar-block"
+          v-scroll-animate
+          data-delay="2"
+        >
           <p class="label">Ngày tổ chức</p>
           <div class="calendar">
             <div class="calendar-header">{{ calendarMonth }}</div>
             <div class="calendar-grid">
-              <span v-for="d in 31" :key="d" :class="['day', { highlight: d === calendarDay }]">{{ d }}</span>
+              <span
+                v-for="d in 31"
+                :key="d"
+                :class="['day', { highlight: d === calendarDay }]"
+                >{{ d }}</span
+              >
             </div>
           </div>
         </div>
-        <!-- TIME / COUNTDOWN SECTION - LED Style -->
+
+        <!-- Đếm ngược LED -->
         <div class="section-block time-block" v-scroll-animate data-delay="3">
           <p class="label">Đếm ngược đến sự kiện</p>
           <div class="countdown-grid">
@@ -89,47 +121,61 @@
             </div>
           </div>
         </div>
-                <!-- 3D CYLINDER IMAGE GALLERY - Rotating Carousel -->
-        <div class="section-block gallery-3d-block" v-scroll-animate data-delay="3.5">
-          <p class="label" style="margin-bottom: 20px;">Khoảnh khắc của bé</p>
-          
-          <div class="cylinder-gallery-container">
-            <div class="cylinder-scene">
-              <div class="cylinder-carousel" :style="{ transform: `rotateY(${rotation}deg)` }">
-                <div 
-                  class="cylinder-item" 
-                  v-for="(img, index) in galleryImages" 
-                  :key="index"
-                  :style="{ 
-                    transform: `rotateY(${index * itemAngle}deg) translateZ(${radius}px)`,
-                    backgroundImage: `url(${img})`
-                  }"
-                >
-                  <!-- Có thể thêm overlay hoặc caption nếu muốn -->
-                </div>
-              </div>
+
+        <!-- GALLERY ĐƠN GIẢN – SIÊU NHẸ, SIÊU ĐẸP, KHÔNG CRASH SAFARI -->
+        <div
+          class="section-block gallery-block"
+          v-scroll-animate
+          data-delay="3.5"
+        >
+          <p class="label" style="margin-bottom: 20px">Khoảnh khắc của bé</p>
+          <div class="simple-gallery">
+            <div
+              class="gallery-track"
+              :style="{ transform: `translateX(-${currentIndex * 100}%)` }"
+            >
+              <img
+                v-for="(img, i) in galleryImages"
+                :key="i"
+                :src="img"
+                alt="Khoảnh khắc bé"
+              />
             </div>
+            <button class="prev" @click="prevSlide">‹</button>
+            <button class="next" @click="nextSlide">›</button>
           </div>
         </div>
-        <!-- LOCATION SECTION -->
-        <div class="section-block location-block" v-scroll-animate data-delay="4">
+
+        <!-- Địa điểm -->
+        <div
+          class="section-block location-block"
+          v-scroll-animate
+          data-delay="4"
+        >
           <p class="label">Địa điểm</p>
-          <div class="location-box">📍 {{ location }}</div>
+          <div class="location-box">
+            95 Đồng Kè, Hoà Khánh Bắc, Liên Chiểu, Đà Nẵng
+          </div>
           <div class="map-container">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3834.534180918249!2d108.1431936153252!3d16.072889776176113!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314218d5079a7285%3A0x3fbce23a7a72671d!2zOTUgxJDhuqFvIEtow6FuaCBCw6FjLCBMw6JuIENow6F1LCDEkMO0w6JuZyBOYW5nIDU1MDAwLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1700328754321!5m2!1svi!2s"
               width="100%"
               height="250"
-              style="border:0; border-radius:12px;"
+              style="border: 0; border-radius: 12px"
               allowfullscreen=""
-              loading="lazy">
+              loading="lazy"
+            >
             </iframe>
           </div>
         </div>
-        <footer class="footer" v-scroll-animate data-delay="8">Liên hệ: {{ contact }} — Lưu ý: mặc trang phục tươi sáng.</footer>
-        <!-- CHỈ MỘT CHỮ THANK YOU – ĐẸP & SANG -->
+
+        <footer class="footer" v-scroll-animate data-delay="8">
+          Liên hệ: 0123 456 789 — Vui lòng mặc trang phục tươi sáng
+        </footer>
+
+        <!-- Thank you sang trọng -->
         <div class="thank-you-simple" v-scroll-animate data-delay="5.5">
-          ❖ Thank You  ❖
+          Thank You
           <span class="underline"></span>
         </div>
       </section>
@@ -138,721 +184,474 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from "vue";
 
-// === DỮ LIỆU CHUNG ===
-const date = ref('2025-12-07')
-const location = ref('95 Đồng Kè, Hoà Khánh Bắc, Liên Chiểu, Đà Nẵng, Việt Nam')
-const contact = ref('0123 456 789')
-const image = ref('')
+// DỮ LIỆU
+const date = ref("2025-12-07 10:00:00"); // ngày giờ sự kiện
+const location = ref("95 Đồng Kè, Hoà Khánh Bắc, Liên Chiểu, Đà Nẵng");
+const contact = ref("0123 456 789");
+const showSettings = ref(true);
 
-const showSettings = ref(true)
-const rsvpName = ref('')
-const rsvpMsg = ref('')
-
-const calendarDay = computed(() => Number(date.value.split('-')[2]))
+// Calendar
+const calendarDay = computed(() =>
+  Number(date.value.split(" ")[0].split("-")[2])
+);
 const calendarMonth = computed(() => {
-  const months = ['Tháng 1','Tháng 2','Tháng 3','Tháng 4','Tháng 5','Tháng 6','Tháng 7','Tháng 8','Tháng 9','Tháng 10','Tháng 11','Tháng 12']
-  return months[Number(date.value.split('-')[1]) - 1]
-})
+  const months = [
+    "Tháng 1",
+    "Tháng 2",
+    "Tháng 3",
+    "Tháng 4",
+    "Tháng 5",
+    "Tháng 6",
+    "Tháng 7",
+    "Tháng 8",
+    "Tháng 9",
+    "Tháng 10",
+    "Tháng 11",
+    "Tháng 12",
+  ];
+  return months[Number(date.value.split(" ")[0].split("-")[1]) - 1];
+});
 
-// === COUNTDOWN LED ===
-const countdownDays = ref('00')
-const countdownHours = ref('00')
-const countdownMinutes = ref('00')
-const countdownSeconds = ref('00')
-const countdown = ref('')
+// Countdown
+const countdownDays = ref("00");
+const countdownHours = ref("00");
+const countdownMinutes = ref("00");
+const countdownSeconds = ref("00");
+let timer = null;
 
-let timerInterval = null
-function updateCountdown() {
-  const target = new Date(`${date.value} 10:00:00`)
-  const now = new Date()
-  const diff = target - now
+const updateCountdown = () => {
+  const target = new Date(date.value).getTime();
+  const now = new Date().getTime();
+  const diff = target - now;
 
   if (diff <= 0) {
-    countdownDays.value = countdownHours.value = countdownMinutes.value = countdownSeconds.value = '00'
-    countdown.value = 'Đã đến giờ tổ chức'
-    clearInterval(timerInterval)
-    return
+    countdownDays.value =
+      countdownHours.value =
+      countdownMinutes.value =
+      countdownSeconds.value =
+        "00";
+    clearInterval(timer);
+    return;
   }
 
-  const days = Math.floor(diff / (1000 * 60 * 60 * 24))
-  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24)
-  const minutes = Math.floor((diff / (1000 * 60)) % 60)
-  const seconds = Math.floor((diff / 1000) % 60)
+  const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  const s = Math.floor((diff % (1000 * 60)) / 1000);
 
-  countdownDays.value = String(days).padStart(2, '0')
-  countdownHours.value = String(hours).padStart(2, '0')
-  countdownMinutes.value = String(minutes).padStart(2, '0')
-  countdownSeconds.value = String(seconds).padStart(2, '0')
-}
+  countdownDays.value = String(d).padStart(2, "0");
+  countdownHours.value = String(h).padStart(2, "0");
+  countdownMinutes.value = String(m).padStart(2, "0");
+  countdownSeconds.value = String(s).padStart(2, "0");
+};
 
-// === 3D CYLINDER GALLERY – TRÒN TRỊA HOÀN HẢO ===
-const rotation = ref(0)
+// Simple Gallery (siêu nhẹ)
+const galleryImages = ref([
+  "https://i.pinimg.com/originals/1d/4e/ce/1d4ecef2334c51f3b8b0ca95875b18e5.jpg",
+  "https://i.pinimg.com/originals/1d/4e/ce/1d4ecef2334c51f3b8b0ca95875b18e5.jpg",
+  "https://i.pinimg.com/originals/1d/4e/ce/1d4ecef2334c51f3b8b0ca95875b18e5.jpg",
+  "https://i.pinimg.com/originals/1d/4e/ce/1d4ecef2334c51f3b8b0ca95875b18e5.jpg",
+  "https://i.pinimg.com/originals/1d/4e/ce/1d4ecef2334c51f3b8b0ca95875b18e5.jpg",
+  "https://i.pinimg.com/originals/1d/4e/ce/1d4ecef2334c51f3b8b0ca95875b18e5.jpg",
+]);
+const currentIndex = ref(0);
 
-// Tăng lên ít nhất 18–20 tấm (càng nhiều càng tròn)
-// Dùng cùng 1 ảnh lặp lại là đẹp nhất
-const galleryImages = ref(Array(20).fill('https://i.pinimg.com/originals/1d/4e/ce/1d4ecef2334c51f3b8b0ca95875b18e5.jpg'))
+const nextSlide = () => {
+  currentIndex.value = (currentIndex.value + 1) % galleryImages.value.length;
+};
+const prevSlide = () => {
+  currentIndex.value =
+    (currentIndex.value - 1 + galleryImages.value.length) %
+    galleryImages.value.length;
+};
 
-const itemCount = computed(() => galleryImages.value.length)
-const itemAngle = computed(() => 360 / itemCount.value)
-
-// Bán kính lớn hơn + cố định → trụ to và tròn thật
-const radius = computed(() => 680)
-
-let autoRotateInterval = null
-const startAutoRotate = () => {
-  autoRotateInterval = setInterval(() => {
-    rotation.value -= 0.35   // chậm mịn hơn một chút
-  }, 50)
-}
-// === MOUNTED & UNMOUNTED ===
+// Auto slide
 onMounted(() => {
-  updateCountdown()
-  timerInterval = setInterval(updateCountdown, 1000)
-  startAutoRotate()
-})
+  updateCountdown();
+  timer = setInterval(updateCountdown, 1000);
+  setInterval(nextSlide, 1000); // tự chuyển ảnh mỗi 3.5s
+});
 
 onUnmounted(() => {
-  if (timerInterval) clearInterval(timerInterval)
-  if (autoRotateInterval) clearInterval(autoRotateInterval)
-})
+  if (timer) clearInterval(timer);
+});
 
-// === DIRECTIVE SCROLL ANIMATION ===
+// Scroll animate directive
 const vScrollAnimate = {
   mounted(el) {
-    const delayIndex = el.dataset.delay || 0
-    el.classList.add('slide-up')
-    el.style.transitionDelay = `${delayIndex * 0.2}s`
-
+    const delay = el.dataset.delay || 0;
+    el.classList.add("scroll-anim");
+    el.style.transitionDelay = `${delay * 0.18}s`;
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          el.classList.add('show')
-          observer.unobserve(el)
+          el.classList.add("show");
+          observer.unobserve(el);
         }
       },
       { threshold: 0.1 }
-    )
-    observer.observe(el)
-  }
-}
+    );
+    observer.observe(el);
+  },
+};
 </script>
 
 <style scoped>
-/* ===== HERO TITLES ===== */
-.subtitle {
-  font-size: 1.5rem;
-  font-weight: 400;
-  color: #ecfdf5;
-  text-align: center;
-  margin: 0 0 0.5rem;
-  letter-spacing: 6px;
-  text-transform: uppercase;
-  font-family: 'Quicksand', sans-serif;
-  opacity: 0.9;
-  animation: fadeIn 1s ease-out;
-}
+/* ==== FONTS ==== */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Dancing+Script:wght@700&family=Quicksand&display=swap");
 
-.title {
-  font-size: 2.0rem;
-  font-weight: 900;
-  color: #ffffff;
-  text-align: center;
-  margin: 0 0 2rem;
-  letter-spacing: 3px;
-  text-shadow: 0 4px 12px rgba(6, 78, 59, 0.4);
-  animation: gradientShift 3s ease infinite, fadeIn 1.2s ease-out;
-  position: relative;
-  padding: 0.5rem 0;
-  font-family: 'Playfair Display', serif;
-  line-height: 1.2;
-  background: linear-gradient(135deg, #34d399, #86efac, #d1fae5);
-  -webkit-background-clip: text;
-}
-/* ===== NGÀY SINH KIỂU THIỆP THẬT ===== */
-.birth-real-card {
-  margin-bottom: 2rem;
-  padding: 1.8rem;
-  background: linear-gradient(135deg, #f0fdfa, #ecfdf5);
-  border-radius: 24px;
-  border: 1px solid #a7f3d0;
-  text-align: center;
-}
-
-.birth-card {
-  position: relative;
-  background: linear-gradient(135deg, #059669, #047857);
-  border-radius: 28px;
-  padding: 2rem 1.5rem 2.5rem;
-  color: white;
-  box-shadow: 0 12px 35px rgba(5, 150, 105, 0.4);
-  overflow: hidden;
-}
-
-.birth-title {
-  font-size: 1.25rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  margin-bottom: 0.3rem;
-}
-
-.birth-time {
-  font-size: 1.1rem;
-  opacity: 0.95;
-  margin-bottom: 1.2rem;
-}
-
-.birth-date-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 1rem;
-  flex-wrap: wrap;
-}
-
-.birth-part {
-  text-align: center;
-}
-
-.birth-label {
-  font-size: 0.85rem;
-  opacity: 0.9;
-  display: block;
-  margin-bottom: 0.3rem;
-}
-
-.birth-big {
-  font-size: 3.6rem;
-  font-weight: 900;
-  font-family: 'Playfair Display', serif;
-  line-height: 1;
-}
-
-.slash {
-  font-size: 2.4rem;
-  font-weight: 300;
-  opacity: 0.8;
-}
-
-.birth-year-big {
-  font-size: 5rem;
-  font-weight: 800;
-  font-family: 'Playfair Display', serif;
-}
-
-/* Responsive */
-@media (max-width: 480px) {
-  .birth-big { font-size: 2.8rem; }
-  .birth-year-big { font-size: 5rem; }
-  .slash { font-size: 2rem; }
-
-}
-.title::before { content: '💌'; position: absolute; left: -3.5rem; animation: bounce 2s ease-in-out infinite; }
-.title::after  { content: '💌'; position: absolute; right: -3.5rem; animation: bounce 2s ease-in-out infinite; }
-
-@keyframes gradientShift { 0%,100%{background-position:0% 50%;} 50%{background-position:100% 50%;} }
-@keyframes fadeIn { from{opacity:0;transform:translateY(-20px);} to{opacity:1;transform:translateY(0);} }
-@keyframes bounce { 0%,100%{transform:translateY(0) rotate(-10deg);} 50%{transform:translateY(-10px) rotate(10deg);} }
-
-/* ===== ROOT & CARD ===== */
+/* ==== ROOT ==== */
 .invite-root {
   min-height: 100vh;
+  background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 50%, #a7f3d0 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 50%, #a7f3d0 100%);
   padding: 2rem 1rem;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: "Quicksand", sans-serif;
 }
 .card {
   width: 100%;
   max-width: 1000px;
-  border-radius: 24px;
+  border-radius: 28px;
   overflow: hidden;
   background: #f0fdfa;
-    /* background: linear-gradient(180deg, #064e3b 0%, #065f46 100%); */
-  box-shadow: 0 20px 60px rgba(16,194,121,0.18), 0 0 0 1px rgba(134,239,172,0.2);
+  box-shadow: 0 20px 60px rgba(16, 194, 121, 0.2);
 }
 
-/* ===== HERO ===== */
+/* ==== HERO ==== */
 .hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 3rem 2rem 2rem;
-  position: relative;
+  padding: 4rem 2rem 3rem;
+  text-align: center;
   background: linear-gradient(180deg, #064e3b 0%, #065f46 100%);
+  position: relative;
+  overflow: hidden;
 }
-.hero::before { content:'💐'; position:absolute; top:1rem; left:4.5rem; font-size:2rem; animation:float 3s ease-in-out infinite; }
-.hero::after  { content:'💐'; position:absolute; top:1rem; right:5rem; font-size:2rem; animation:float 3s ease-in-out infinite 1.5s; }
-@keyframes float { 0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);} }
-
-/* tên dưới ảnh */
-.baby { font-size:2rem; font-weight:500; color:#ecfdf5; text-align:center; margin:0; text-shadow:0 2px 8px rgba(6,78,59,0.4); position:relative; padding:0 2rem;}
-.baby::before, .baby::after { content:'❤️'; position:absolute; font-size:1.5rem; color:#86efac; }
-.baby::before { left:0; animation:sparkle 2s ease-in-out infinite; }
-.baby::after  { right:0; animation:sparkle 2s ease-in-out infinite 1s; }
-@keyframes sparkle {0%,100%{opacity:0.4;transform:scale(0.8);}50%{opacity:1;transform:scale(1.2);}}
-
-/* ===== SCROLL ANIMATIONS ===== */
-.subtitle,.title,.hero-image,.baby,.section-block{opacity:0; transform:translateY(30px); transition:all 0.8s ease;}
-.subtitle.show,.title.show,.hero-image.show,.baby.show,.section-block.show{opacity:1; transform:translateY(0);}
-.hero-image.show img{transform:scale(1);}
-
-/* ===== CONTENT ===== */
-.content{padding:2rem 2.5rem; background:#fff;}
-.label{font-size:1rem;color:#059669;margin-bottom:0.8rem;font-weight:600;text-transform:uppercase;display:flex;align-items:center;gap:0.5rem;}
-.label::before{content:'❖';color:#34d399;font-size:0.8rem;}
-.section-block{margin-bottom:2rem;padding:1.5rem;background:#f0fdfa;border-radius:16px;border:1px solid #a7f3d0;transition:all 0.3s ease;}
-.section-block:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(16,194,121,0.15);}
-
-/* ===== CALENDAR ===== */
-.calendar{border:2px solid #86efac;border-radius:16px;overflow:hidden;box-shadow:0 4px 12px rgba(134,239,172,0.2);}
-.calendar-header{background:linear-gradient(135deg,#059669,#10b981);padding:1rem;text-align:center;font-weight:700;color:#fff;font-size:1.1rem;text-transform:uppercase;}
-.calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);padding:1rem;gap:8px;}
-.day{padding:10px 0;text-align:center;font-size:0.9rem;border-radius:8px;background:#ecfdf5;color:#065f46;cursor:default;transition:all 0.2s;}
-.day:hover{background:#a7f3d0;transform:scale(1.05);}
-.day.highlight{background:linear-gradient(135deg,#059669,#10b981);color:#fff;font-weight:700;font-size:1.1rem;box-shadow:0 4px 12px rgba(16,194,121,0.5);transform:scale(1.1);position:relative;}
-.day.highlight::after{content:'🎂';position:absolute;top:-8px;right:-8px;font-size:1rem;}
-
-/* ===== COUNTDOWN ===== */
-.countdown-grid {
+.subtitle {
+  font-size: 1.6rem;
+  color: #d1fae5;
+  letter-spacing: 8px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.title {
+  font-size: 3.2rem;
+  font-weight: 900;
+  color: #fff;
+  font-family: "Playfair Display", serif;
+  margin: 0.5rem 0 2rem;
+  background: linear-gradient(135deg, #34d399, #86efac);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.triple-photo {
   display: flex;
   justify-content: center;
-  gap: 0.8rem;              /* giảm gap một chút cho vừa */
-  margin-top: 1rem;
-  flex-wrap: nowrap;        /* BẮT BUỘC: không cho xuống dòng */
-  padding: 0.5rem 0;        /* thêm chút padding để cuộn mượt */
-  scrollbar-width: none;    /* ẩn thanh cuộn trên Firefox */
-}.countdown-item{display:flex;flex-direction:column;align-items:center;padding:1.2rem 1.5rem;background:linear-gradient(145deg,#059669,#047857);border-radius:16px;min-width:80px;color:#fff;box-shadow:0 6px 20px rgba(5,150,105,0.45),inset 0 -3px 6px rgba(255,255,255,0.2);animation:pulse 2s ease-in-out infinite;position:relative;overflow:hidden;}
-.countdown-item::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:linear-gradient(45deg,transparent,rgba(255,255,255,0.12),transparent);transform:rotate(45deg);animation:shimmer 3s infinite;}
-@keyframes pulse{0%,100%{box-shadow:0 6px 20px rgba(5,150,105,0.45),inset 0 -3px 6px rgba(255,255,255,0.2);}50%{box-shadow:0 8px 25px rgba(16,194,121,0.6),inset 0 -4px 8px rgba(255,255,255,0.4);}}
-@keyframes shimmer{0%{transform:translateX(-100%) translateY(-100%) rotate(45deg);}100%{transform:translateX(100%) translateY(100%) rotate(45deg);}}
-.num{font-size:2rem;font-weight:800;text-shadow:0 2px 8px rgba(0,0,0,0.4);font-family:'Courier New', monospace;}
-.label-small{font-size:0.75rem;color:#d1fae5;margin-top:0.5rem;text-transform:uppercase;font-weight:600;}
+  align-items: center;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+.photo-frame {
+  border: 14px solid #fff;
+  border-bottom-width: 20px;
+  border-radius: 32px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+.photo-frame.middle {
+  transform: translateY(-20px) scale(1.1);
+  z-index: 2;
+}
+.photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 3/4;
+}
+.baby {
+  font-size: 2.4rem;
+  color: #ecfdf5;
+  margin: 2rem 0 0;
+  font-weight: 600;
+}
 
-/* ===== LOCATION ===== */
-.location-box{padding:1rem 1.2rem;background:linear-gradient(135deg,#ecfdf5,#f0fdf4);border-radius:12px;border:2px solid #86efac;text-align:center;font-weight:600;font-size:1rem;color:#064e3b;margin-bottom:1rem;box-shadow:0 2px 8px rgba(134,239,172,0.15);}
-.map-container{margin-top:1rem;border-radius:16px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,0.15);border:3px solid #fff;}
-
-/* ===== MESSAGE ===== */
-.message-block .message{line-height:1.8;color:#374151;font-size:1rem;text-align:justify;padding:1rem;background:#fff;border-radius:12px;border-left:4px solid #10b981;}
-
-/* ===== FOOTER ===== */
-.footer{margin-top:2rem;text-align:center;font-size:0.9rem;color:#065f46;padding:1.5rem;background:#f0fdfa;border-radius:12px;border:1px dashed #86efac;}
-
-/* ===== RESPONSIVE ===== */
-@media (max-width:768px){.invite-root{padding:1rem 0.5rem;}.hero{padding:2rem 1rem 1.5rem;}.hero-image{height:250px;}.content{padding:1.5rem 1rem;}.section-block{padding:1rem;}.countdown-grid{gap:0.6rem;}.countdown-item{min-width:70px;padding:1rem 1.2rem;}.num{font-size:1.6rem;}.calendar-grid{gap:4px;padding:0.8rem;}}
-@media (max-width:480px){.num{font-size:1.4rem;}}
-/* Font chữ tay sang trọng */
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
-
+/* Tên bé khung đẹp */
 .baby-name-framed {
   padding: 4rem 2rem;
   text-align: center;
 }
-
-/* Khung viền đẹp */
 .name-frame {
   max-width: 720px;
-  padding: 2.5rem 2rem;
+  margin: 0 auto;
+  padding: 3rem 2rem;
   background: linear-gradient(135deg, #f8fdf9 0%, #f0fdf4 100%);
-  border: double 6px #86efac;
+  border: double 7px #86efac;
   border-radius: 32px;
-  box-shadow: 
-    0 10px 40px rgba(16, 194, 121, 0.15),
-    inset 0 0 30px rgba(134, 239, 172, 0.2);
+  box-shadow: 0 15px 40px rgba(16, 194, 121, 0.2);
   position: relative;
+}
+.name-text {
+  font-family: "Dancing Script", cursive;
+  font-size: 3rem;
+  font-weight: 700;
+  background: linear-gradient(120deg, #064e3b, #059669, #34d399);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Content */
+.content {
+  padding: 2rem 2rem 4rem;
+  background: #fff;
+}
+.label {
+  font-size: 1rem;
+  color: #059669;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.label::before {
+  content: "◆";
+  color: #34d399;
+  font-size: 0.9rem;
+}
+.section-block {
+  margin-bottom: 2.5rem;
+  padding: 1.8rem;
+  background: #f0fdfa;
+  border-radius: 20px;
+  border: 1px solid #a7f3d0;
+}
+
+/* Birth card */
+.birth-card {
+  background: linear-gradient(135deg, #059669, #047857);
+  color: #fff;
+  padding: 2.5rem 2rem;
+  border-radius: 28px;
+  text-align: center;
+  box-shadow: 0 12px 30px rgba(5, 150, 105, 0.4);
+}
+.birth-title {
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+.birth-time {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+.birth-date-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.birth-big {
+  font-size: 4rem;
+  font-weight: 900;
+  font-family: "Playfair Display", serif;
+}
+.birth-year-big {
+  font-size: 5.5rem;
+  font-weight: 900;
+  font-family: "Playfair Display", serif;
+}
+
+/* Calendar */
+.calendar {
+  border: 2px solid #86efac;
+  border-radius: 16px;
   overflow: hidden;
 }
-
-/* 4 góc trang trí nhỏ */
-.name-frame::before {
-  content: '';
-  position: absolute;
-  top: 12px; left: 12px;
-  width: 40px; height: 40px;
-  border-left: 4px solid #34d399;
-  border-top: 4px solid #34d399;
-  border-radius: 12px 0 0 0;
-}
-
-.name-frame::after {
-  content: '';
-  position: absolute;
-  bottom: 12px; right: 12px;
-  width: 40px; height: 40px;
-  border-right: 4px solid #34d399;
-  border-bottom: 4px solid #34d399;
-  border-radius: 0 0 12px 0;
-}
-
-.name-frame > div {
-  position: absolute;
-  width: 40px; height: 40px;
-  border: 4px solid hsl(158, 64%, 52%);
-  border-radius: 12px;
-}
-
-.name-frame > div:nth-child(1) { top: 12px; right: 12px; border-left: none; border-bottom: none; }
-.name-frame > div:nth-child(2) { bottom: 12px; left: 12px; border-right: none; border-top: none; }
-
-/* Chữ tên */
-.name-text {
-  margin: 0;
-  font-size: 2rem;
+.calendar-header {
+  background: linear-gradient(135deg, #059669, #10b981);
+  color: #fff;
+  padding: 1rem;
   font-weight: 700;
-  font-family: 'Dancing Script', cursive;
-  background: linear-gradient(120deg, #064e3b, #059669, #10b981, #34d399);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 6px 20px rgba(16, 194, 121, 0.2);
+  text-transform: uppercase;
+}
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  padding: 1rem;
+}
+.day {
+  padding: 10px 0;
+  text-align: center;
+  border-radius: 8px;
+  background: #ecfdf5;
+}
+.day.highlight {
+  background: linear-gradient(135deg, #059669, #10b981);
+  color: #fff;
+  font-weight: 700;
+  transform: scale(1.15);
 }
 
-/* Hiệu ứng hiện khi scroll */
-.baby-name-framed {
+/* Countdown */
+.countdown-grid {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.countdown-item {
+  background: linear-gradient(145deg, #059669, #047857);
+  color: #fff;
+  padding: 1.5rem 1rem;
+  border-radius: 16px;
+  min-width: 85px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(5, 150, 105, 0.5);
+}
+.num {
+  font-size: 2.4rem;
+  font-weight: 800;
+  font-family: "Courier New", monospace;
+}
+.label-small {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  margin-top: 0.5rem;
+}
+
+/* Simple Gallery – SIÊU NHẸ */
+.simple-gallery {
+  position: relative;
+  max-width: 420px;
+  margin: 0 auto;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+.gallery-track {
+  display: flex;
+  transition: transform 0.6s ease;
+}
+.gallery-track img {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(5, 150, 105, 0.8);
+  color: #fff;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 2rem;
+  cursor: 10;
+}
+.prev {
+  left: 15px;
+}
+.next {
+  right: 15px;
+}
+
+/* Location */
+.location-box {
+  background: #ecfdf5;
+  padding: 1rem;
+  border: 2px solid #86efac;
+  border-radius: 12px;
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+/* Footer & Thank you */
+.footer {
+  text-align: center;
+  padding: 2rem;
+  background: #f0fdfa;
+  border-radius: 16px;
+  margin-top: 2rem;
+  color: #065f46;
+}
+.thank-you-simple {
+  text-align: center;
+  font-size: 4.5rem;
+  font-weight: 900;
+  font-family: "Playfair Display", serif;
+  margin: 4rem 0 2rem;
+  background: linear-gradient(135deg, #047857, #34d399);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+}
+.thank-you-simple .underline {
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 6px;
+  background: #047857;
+  border-radius: 3px;
+}
+
+/* Scroll animation */
+.scroll-anim {
   opacity: 0;
   transform: translateY(40px);
-  transition: all 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: all 1s ease;
 }
-.baby-name-framed.show {
+.scroll-anim.show {
   opacity: 1;
   transform: translateY(0);
 }
 
 /* Responsive */
-@media (max-width: 640px) {
-  .name-text { font-size: 1rem; }
-  .name-frame { padding: 2rem 1.5rem; border-width: 5px; }
-}
-/* ===== 3 ẢNH STUDIO – MÁY TÍNH ĐẸP Y HỆT ẢNH MẪU ===== */
-.triple-photo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 32px;                    /* khoảng cách rộng rãi như mẫu */
-  margin: 3rem auto;
-  padding: 0 2rem;
-  max-width: 1200px;
-}
-
-.photo-frame {
-  border: 14px solid #ffffff;
-  border-bottom-width: 18px;
-  border-radius: 32px;
-  overflow: hidden;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.25);
-  background: #fff;
-  position: relative;
-  transition: transform 0.4s ease;
-}
-
-/* Ảnh giữa to hơn đúng như mẫu */
-.photo-frame.middle {
-  flex: 0 0 300px;
-  transform: translateY(-20px) scale(1.08);
-  z-index: 2;
-}
-
-
-.photo-frame img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
-  display: block;
-  aspect-ratio: 3 / 4;
-}
-
-/* ==================== ĐIỆN THOẠI – NHỎ LẠI VỪA ĐẸP, VẪN NẰM NGANG ==================== */
 @media (max-width: 768px) {
-  .triple-photo {
-    gap: 6px;
-    padding: 0px;
+  .title {
+    font-size: 2.6rem;
   }
-  .photo-frame {
-      /* nhỏ lại vừa điện thoại */
-    border-width: 10px;
-    border-bottom-width: 14px;
-    border-radius: 24px;
+  .birth-big {
+    font-size: 3rem;
   }
-  .photo-frame::before {
-    inset: 5px;
-    border-width: 4px;
+  .birth-year-big {
+    font-size: 4.5rem;
   }
-  .photo-frame.middle {
-
-    transform: translateY(-12px) scale(1.07);
+  .name-text {
+    font-size: 2.4rem;
+  }
+  .thank-you-simple {
+    font-size: 3rem;
+  }
+  .countdown-item {
+    min-width: 70px;
+    padding: 1.2rem 0.8rem;
+  }
+  .num {
+    font-size: 2rem;
   }
 }
-
 @media (max-width: 480px) {
-  .triple-photo { gap: 6px; }
-  .photo-frame {
-
-    min-width: 100px;
-    border-width: 7px;
-    border-bottom-width: 10px;
-    border-radius: 18px;
+  .triple-photo {
+    gap: 0.5rem;
   }
-  .photo-frame::before {
-    inset: 4px;
-    border-width: 3px;
+  .photo-frame {
+    border-width: 8px;
+    border-bottom-width: 12px;
   }
   .photo-frame.middle {
-    flex: 0 0 33vw;
-    min-width: 110px;
-    transform: translateY(-8px) scale(1.06);
+    transform: translateY(-10px) scale(1.05);
   }
 }
-
- /* === TRỤ XOAY 3D – TRÒN TRỊA HOÀN HẢO, NỐI LIỀN 100% === */
-.gallery-3d-block {
-  background: #f0fdfa;             /* Màu nền nhẹ nhàng, hợp với theme bé gái */
-  overflow: hidden;                /* Quan trọng: Ẩn phần ảnh bị tràn ra ngoài khi xoay */
-}
-
-/* Khu vực chứa toàn bộ không gian 3D */
-.cylinder-gallery-container {
-  width: 100%;
-  max-width: 1400px;                /* Giới hạn chiều rộng tối đa (đẹp trên mọi màn hình) */
-  height: 315px;                   /* Chiều cao cố định để ảnh vừa khung */
-  margin: 0 auto;                  /* Căn giữa theo chiều ngang */
-  perspective: 5000px;             /* Càng lớn → mắt người xem càng xa → cong càng sâu, trụ càng tròn */
-  perspective-origin: 50% 50%;     /* Điểm nhìn hơi lệch xuống dưới một chút để nhìn tự nhiên hơn */
-}
-
-/* Scene – không gian 3D chính */
-.cylinder-scene {
-  width: 100%;
-  height: 100%;
-  position: relative;              /* Làm gốc tọa độ cho các phần con absolute */
-  transform-style: preserve-3d;    /* BẮT BUỘC: giữ lại hiệu ứng 3D cho các phần con */
-}
-
-/* Cái carousel thực sự xoay tròn */
-.cylinder-carousel {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  transform-style: preserve-3d;    /* BẮT BUỘC: cho các tấm ảnh giữ được 3D */
-  transition: transform 0.1s linear; /* Làm xoay mượt mà */
-}
-
-/* Mỗi tấm ảnh riêng lẻ */
-.cylinder-item {
-  position: absolute;              /* Đặt vị trí trong không gian 3D */
-  top: 20px;                       /* Cách mép trên một chút để căn giữa dọc đẹp hơn */
-  left: 50%;                       /* Đặt tâm ngang ở giữa */
-  width: 215px;                    /* RỘNG HƠN RẤT NHIỀU so với bản cũ → che hết khe hở */
-  height: 300px;                   /* Cao hơn → tạo cảm giác trụ to */
-  margin-left: -70px;             /* Dịch ngược lại ½ width để căn giữa chính xác */
-  background-size: cover !important;     /* Ảnh phủ kín tấm */
-  background-position: center !important; /* Căn giữa ảnh */
-
-
-  backface-visibility: hidden;     /* Ẩn mặt sau khi xoay (rất quan trọng trong 3D) */
-  transform-style: preserve-3d;    /* Giữ 3D cho các phần con (nếu có) */
-
-  /* ============================================= */
-  /* 3 DÒNG THẦN THÁNH – LÀM CÁC ẢNH NỐI LIỀN HOÀN TOÀN */
-  /* ============================================= */
-  -webkit-mask-image: radial-gradient(ellipse 170% 130% at 50% 50%, black 66%, transparent 100%);
-          mask-image: radial-gradient(ellipse 170% 130% at 50% 50%, black 66%, transparent 100%);
-}
-
-/* Hiệu ứng ánh sáng nhẹ bao quanh mỗi tấm (đẹp hơn, tùy chọn) */
-.cylinder-item::before {
-  content: '';
-  position: absolute;
-  inset: -50px;                    /* Tràn ra ngoài tấm ảnh một chút */
-  border-radius: 44px;
-  background: linear-gradient(45deg, rgba(255,182,193,0.6), rgba(173,216,230,0.5)); /* hồng nhạt → xanh nhạt */
-  filter: blur(60px);              /* Làm mờ mạnh → tạo hiệu ứng glow */
-  opacity: 0.1;                   /* Độ trong suốt vừa đủ */
-  z-index: -1;                     /* Đặt sau tấm ảnh */
-  pointer-events: none;            /* Không cản chuột */
-}
-/* THANHYOU */
-.thank-you-simple {
-  font-size: 5rem;
-  font-weight: 900;
-  text-align: center;
-  margin: 50px 0;
-  width: 100%;                                    /* thêm */
-  background: linear-gradient(135deg, #047857);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-family: 'Playfair Display', serif;
-  letter-spacing: 6px;
-}
-
-/* Gạch chân giả – hiển thị 100% dù có gradient */
-.thank-you-simple .underline {
-  position: absolute;
-  left: 50%;
-  bottom: 12px;                        /* chỉnh lên/xuống tùy ý */
-  transform: translateX(-50%);
-  width: 70%;
-  height: 6px;
-  background: linear-gradient(90deg, transparent, #047857, transparent);
-  border-radius: 3px;
-}
-
-/* Mobile */
-@media (max-width: 760px) {
-  .thank-you-simple { font-size: 2rem; margin: 90px auto 70px; }
-  .thank-you-simple .underline { bottom: 8px; height: 4px; }
-}
-/* ========================================================= */
-/* ================ FIX SAFARI 100% – DÁN CUỐI CÙNG ============ */
-/* ========================================================= */
-@supports (-webkit-touch-callout: none) or (-webkit-text-fill-color: transparent) {
-  /* Chỉ chạy trên Safari (iOS & macOS) – Chrome sẽ bỏ qua hoàn toàn */
-  
-  /* 1. Fix chữ gradient bị mất trên Safari */
-  .title,
-  .name-text,
-  .thank-you-simple,
-  .subtitle,
-  h1, h2, h3, h4, h5, h6 {
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
-  }
-
-  /* 2. Fix trụ xoay 3D bị trắng / không hiện ảnh */
-  .cylinder-item {
-    -webkit-mask-image: radial-gradient(ellipse 170% 130% at 50% 50%, black 66%, transparent 100%) !important;
-    mask-image: radial-gradient(ellipse 170% 130% at 50% 50%, black 66%, transparent 100%);
-  }
-
-  /* 3. Force GPU + giữ 3D context trên Safari */
-  .cylinder-gallery-container,
-  .cylinder-scene,
-  .cylinder-carousel {
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    -webkit-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-  }
-
-  /* 4. Fix perspective bị vỡ */
-  .cylinder-gallery-container {
-    -webkit-perspective: 5000px;
-    perspective: 5000px;
-  }
-}
-
-/* Fallback cho Safari cực cũ (iOS ≤ 14) không hỗ trợ gap trong flex */
-@supports not (gap: 1px) {
-  .triple-photo {
-    gap: 32px !important;
-  }
-  .triple-photo > * + * {
-    margin-left: 32px;
-  }
-  @media (max-width: 768px) {
-    .triple-photo > * + * {
-      margin-left: 6px;
-    }
-  }
-}
-
-/* Fix aspect-ratio cho Safari ≤ 14 */
-@supports not (aspect-ratio: 1) {
-  .photo-frame img {
-    height: 0;
-    padding-bottom: 133.33%; /* 3:4 ratio */
-    position: relative;
-  }
-  .photo-frame img {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-  }
-}
-
-/* Tăng độ ổn định 3D toàn trang (không ảnh hưởng Chrome) */
-.gallery-3d-block,
-.cylinder-gallery-container {
-  contain: layout style paint;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-}
-/* === 3D CYLINDER GALLERY – FULL SAFARI FIX === */
-
-.gallery-3d-block {
-  margin-top: 40px;
-  text-align: center;
-}
-
-.cylinder-gallery-container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-top: 10px;
-
-  perspective: 1200px;
-  -webkit-perspective: 1200px; /* Safari */
-}
-
-.cylinder-scene {
-  width: 260px;
-  height: 380px;
-  position: relative;
-
-  transform-style: preserve-3d;
-  -webkit-transform-style: preserve-3d; /* Safari */
-}
-
-.cylinder-carousel {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-
-  transform-style: preserve-3d;
-  -webkit-transform-style: preserve-3d;
-
-  transition: transform 1s ease-out;
-  -webkit-transition: transform 1s ease-out;
-}
-
-.cylinder-item {
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  width: 220px;
-  height: 350px;
-
-  background-size: cover;
-  background-position: center;
-  border-radius: 18px;
-
-  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-
-  /* Safari cần để tránh lật trắng */
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-
-  transform-style: preserve-3d;
-  -webkit-transform-style: preserve-3d;
-
-  image-rendering: auto;
-}
-
-/* OPTIONAL: làm mượt khi xoay */
-.cylinder-carousel.smooth {
-  transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-/* OPTIONAL: hiệu ứng khi chạm */
-.cylinder-item:hover {
-  transform: scale(1.05) translateZ(10px);
-  -webkit-transform: scale(1.05) translateZ(10px);
-}
-
-</style> 
+</style>
