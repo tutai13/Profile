@@ -782,7 +782,77 @@ const vScrollAnimate = {
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
 }
-/* ========================================================= */
-/* ====================== HẾT – DÁN XONG LÀ XÀI =============== */
-/* ========================================================= */
+/* === 3D CYLINDER GALLERY – FULL SAFARI FIX === */
+
+.gallery-3d-block {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.cylinder-gallery-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+
+  perspective: 1200px;
+  -webkit-perspective: 1200px; /* Safari */
+}
+
+.cylinder-scene {
+  width: 260px;
+  height: 380px;
+  position: relative;
+
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d; /* Safari */
+}
+
+.cylinder-carousel {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+
+  transition: transform 1s ease-out;
+  -webkit-transition: transform 1s ease-out;
+}
+
+.cylinder-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 220px;
+  height: 350px;
+
+  background-size: cover;
+  background-position: center;
+  border-radius: 18px;
+
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+
+  /* Safari cần để tránh lật trắng */
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+
+  image-rendering: auto;
+}
+
+/* OPTIONAL: làm mượt khi xoay */
+.cylinder-carousel.smooth {
+  transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* OPTIONAL: hiệu ứng khi chạm */
+.cylinder-item:hover {
+  transform: scale(1.05) translateZ(10px);
+  -webkit-transform: scale(1.05) translateZ(10px);
+}
+
 </style> 
