@@ -60,7 +60,6 @@
           v-scroll-animate
           data-delay="6"
         >
-          <p class="label">Bé chào đời</p>
           <div class="birth-card">
             <div class="birth-title">TIỆC MỪNG THÔI NÔI</div>
             <div class="birth-time">VÀO LÚC: 17H00</div>
@@ -85,7 +84,6 @@
           v-scroll-animate
           data-delay="2"
         >
-          <p class="label">Ngày tổ chức</p>
           <div class="calendar">
             <div class="calendar-header">{{ calendarMonth }}</div>
             <div class="calendar-grid">
