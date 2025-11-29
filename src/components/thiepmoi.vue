@@ -708,4 +708,81 @@ const vScrollAnimate = {
   .thank-you-simple { font-size: 2rem; margin: 90px auto 70px; }
   .thank-you-simple .underline { bottom: 8px; height: 4px; }
 }
+/* ========================================================= */
+/* ================ FIX SAFARI 100% – DÁN CUỐI CÙNG ============ */
+/* ========================================================= */
+@supports (-webkit-touch-callout: none) or (-webkit-text-fill-color: transparent) {
+  /* Chỉ chạy trên Safari (iOS & macOS) – Chrome sẽ bỏ qua hoàn toàn */
+  
+  /* 1. Fix chữ gradient bị mất trên Safari */
+  .title,
+  .name-text,
+  .thank-you-simple,
+  .subtitle,
+  h1, h2, h3, h4, h5, h6 {
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+  }
+
+  /* 2. Fix trụ xoay 3D bị trắng / không hiện ảnh */
+  .cylinder-item {
+    -webkit-mask-image: radial-gradient(ellipse 170% 130% at 50% 50%, black 66%, transparent 100%) !important;
+    mask-image: radial-gradient(ellipse 170% 130% at 50% 50%, black 66%, transparent 100%);
+  }
+
+  /* 3. Force GPU + giữ 3D context trên Safari */
+  .cylinder-gallery-container,
+  .cylinder-scene,
+  .cylinder-carousel {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+  }
+
+  /* 4. Fix perspective bị vỡ */
+  .cylinder-gallery-container {
+    -webkit-perspective: 5000px;
+    perspective: 5000px;
+  }
+}
+
+/* Fallback cho Safari cực cũ (iOS ≤ 14) không hỗ trợ gap trong flex */
+@supports not (gap: 1px) {
+  .triple-photo {
+    gap: 32px !important;
+  }
+  .triple-photo > * + * {
+    margin-left: 32px;
+  }
+  @media (max-width: 768px) {
+    .triple-photo > * + * {
+      margin-left: 6px;
+    }
+  }
+}
+
+/* Fix aspect-ratio cho Safari ≤ 14 */
+@supports not (aspect-ratio: 1) {
+  .photo-frame img {
+    height: 0;
+    padding-bottom: 133.33%; /* 3:4 ratio */
+    position: relative;
+  }
+  .photo-frame img {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+  }
+}
+
+/* Tăng độ ổn định 3D toàn trang (không ảnh hưởng Chrome) */
+.gallery-3d-block,
+.cylinder-gallery-container {
+  contain: layout style paint;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+/* ========================================================= */
+/* ====================== HẾT – DÁN XONG LÀ XÀI =============== */
+/* ========================================================= */
 </style> 
