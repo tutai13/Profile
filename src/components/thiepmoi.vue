@@ -309,13 +309,14 @@ const vScrollAnimate = {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem 1rem;
+  padding: 1rem 0.5rem;
   font-family: "Quicksand", sans-serif;
 }
+
 .card {
   width: 100%;
   max-width: 1000px;
-  border-radius: 28px;
+  border-radius: 20px;
   overflow: hidden;
   background: #f0fdfa;
   box-shadow: 0 20px 60px rgba(16, 194, 121, 0.2);
@@ -323,91 +324,107 @@ const vScrollAnimate = {
 
 /* ==== HERO ==== */
 .hero {
-  padding: 4rem 2rem 3rem;
+  padding: 3rem 1.5rem 2.5rem;
   text-align: center;
   background: linear-gradient(180deg, #064e3b 0%, #065f46 100%);
   position: relative;
   overflow: hidden;
 }
+
 .subtitle {
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   color: #d1fae5;
-  letter-spacing: 8px;
+  letter-spacing: 6px;
   text-transform: uppercase;
   font-weight: 500;
 }
+
 .title {
-  font-size: 3.2rem;
+  font-size: 2.5rem;
   font-weight: 900;
   color: #fff;
   font-family: "Playfair Display", serif;
-  margin: 0.5rem 0 2rem;
+  margin: 0.5rem 0 1.5rem;
   background: linear-gradient(135deg, #34d399, #86efac);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
 }
+
 .triple-photo {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
-  margin: 2rem 0;
+  gap: 0.8rem;
+  margin: 1.5rem 0;
 }
+
 .photo-frame {
-  border: 14px solid #fff;
-  border-bottom-width: 20px;
-  border-radius: 32px;
+  border: 8px solid #fff;
+  border-bottom-width: 14px;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  width: 28%;
 }
+
 .photo-frame.middle {
-  transform: translateY(-20px) scale(1.1);
+  transform: translateY(-15px) scale(1.08);
   z-index: 2;
 }
+
 .photo-frame img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   aspect-ratio: 3/4;
+  display: block;
 }
+
 .baby {
-  font-size: 2.4rem;
+  font-size: 2rem;
   color: #ecfdf5;
-  margin: 2rem 0 0;
+  margin: 1.5rem 0 0;
   font-weight: 600;
 }
 
 /* Tên bé khung đẹp */
 .baby-name-framed {
-  padding: 4rem 2rem;
+  padding: 2.5rem 1rem;
   text-align: center;
 }
+
 .name-frame {
   max-width: 720px;
   margin: 0 auto;
-  padding: 3rem 2rem;
+  padding: 2rem 1.5rem;
   background: linear-gradient(135deg, #f8fdf9 0%, #f0fdf4 100%);
-  border: double 7px #86efac;
-  border-radius: 32px;
+  border: double 5px #86efac;
+  border-radius: 20px;
   box-shadow: 0 15px 40px rgba(16, 194, 121, 0.2);
   position: relative;
 }
+
 .name-text {
   font-family: "Dancing Script", cursive;
-  font-size: 3rem;
+  font-size: 2.2rem;
   font-weight: 700;
   background: linear-gradient(120deg, #064e3b, #059669, #34d399);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.3;
 }
 
 /* Content */
 .content {
-  padding: 2rem 2rem 4rem;
+  padding: 1.5rem 1rem 3rem;
   background: #fff;
 }
+
 .label {
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: #059669;
   font-weight: 600;
   text-transform: uppercase;
@@ -416,53 +433,89 @@ const vScrollAnimate = {
   align-items: center;
   gap: 0.5rem;
 }
+
 .label::before {
   content: "◆";
   color: #34d399;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 }
+
 .section-block {
-  margin-bottom: 2.5rem;
-  padding: 1.8rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem 1rem;
   background: #f0fdfa;
-  border-radius: 20px;
+  border-radius: 16px;
   border: 1px solid #a7f3d0;
+}
+
+/* Message */
+.message {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #065f46;
+  text-align: justify;
 }
 
 /* Birth card */
 .birth-card {
   background: linear-gradient(135deg, #059669, #047857);
   color: #fff;
-  padding: 2.5rem 2rem;
-  border-radius: 28px;
+  padding: 2rem 1.5rem;
+  border-radius: 20px;
   text-align: center;
   box-shadow: 0 12px 30px rgba(5, 150, 105, 0.4);
 }
+
 .birth-title {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   text-transform: uppercase;
   margin-bottom: 0.5rem;
+  letter-spacing: 1px;
 }
+
 .birth-time {
-  font-size: 1.2rem;
-  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  margin-bottom: 1.2rem;
 }
+
 .birth-date-row {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 1rem;
   flex-wrap: wrap;
 }
+
+.birth-part {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.birth-label {
+  font-size: 0.85rem;
+  opacity: 0.9;
+  margin-bottom: 0.3rem;
+}
+
 .birth-big {
+  font-size: 3rem;
+  font-weight: 900;
+  font-family: "Playfair Display", serif;
+  line-height: 1;
+}
+
+.slash {
+  font-size: 2.5rem;
+  font-weight: 300;
+  margin: 0 0.5rem;
+}
+
+.birth-year-big {
   font-size: 4rem;
   font-weight: 900;
   font-family: "Playfair Display", serif;
-}
-.birth-year-big {
-  font-size: 5.5rem;
-  font-weight: 900;
-  font-family: "Playfair Display", serif;
+  line-height: 1;
 }
 
 /* Calendar */
@@ -471,25 +524,31 @@ const vScrollAnimate = {
   border-radius: 16px;
   overflow: hidden;
 }
+
 .calendar-header {
   background: linear-gradient(135deg, #059669, #10b981);
   color: #fff;
   padding: 1rem;
   font-weight: 700;
   text-transform: uppercase;
+  font-size: 0.95rem;
 }
+
 .calendar-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 8px;
+  gap: 6px;
   padding: 1rem;
 }
+
 .day {
-  padding: 10px 0;
+  padding: 8px 0;
   text-align: center;
   border-radius: 8px;
   background: #ecfdf5;
+  font-size: 0.9rem;
 }
+
 .day.highlight {
   background: linear-gradient(135deg, #059669, #10b981);
   color: #fff;
@@ -501,48 +560,56 @@ const vScrollAnimate = {
 .countdown-grid {
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: 0.6rem;
   flex-wrap: wrap;
 }
+
 .countdown-item {
   background: linear-gradient(145deg, #059669, #047857);
   color: #fff;
-  padding: 1.5rem 1rem;
-  border-radius: 16px;
-  min-width: 85px;
+  padding: 1.2rem 0.8rem;
+  border-radius: 12px;
+  min-width: 70px;
   text-align: center;
   box-shadow: 0 8px 20px rgba(5, 150, 105, 0.5);
 }
+
 .num {
-  font-size: 2.4rem;
+  font-size: 2rem;
   font-weight: 800;
   font-family: "Courier New", monospace;
-}
-.label-small {
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  margin-top: 0.5rem;
+  line-height: 1;
 }
 
-/* Simple Gallery – SIÊU NHẸ */
+.label-small {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  margin-top: 0.5rem;
+  opacity: 0.95;
+}
+
+/* Simple Gallery */
 .simple-gallery {
   position: relative;
-  max-width: 420px;
+  max-width: 100%;
   margin: 0 auto;
-  border-radius: 28px;
+  border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
 }
+
 .gallery-track {
   display: flex;
   transition: transform 0.6s ease;
 }
+
 .gallery-track img {
   width: 100%;
-  height: 520px;
+  height: 400px;
   object-fit: cover;
   flex-shrink: 0;
 }
+
 .prev,
 .next {
   position: absolute;
@@ -551,17 +618,29 @@ const vScrollAnimate = {
   background: rgba(5, 150, 105, 0.8);
   color: #fff;
   border: none;
-  width: 50px;
-  height: 50px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
-  font-size: 2rem;
-  cursor: 10;
+  font-size: 1.6rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: background 0.3s ease;
 }
+
+.prev:hover,
+.next:hover {
+  background: rgba(5, 150, 105, 1);
+}
+
 .prev {
-  left: 15px;
+  left: 10px;
 }
+
 .next {
-  right: 15px;
+  right: 10px;
 }
 
 /* Location */
@@ -573,35 +652,54 @@ const vScrollAnimate = {
   text-align: center;
   font-weight: 600;
   margin-bottom: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.map-container {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 220px;
+  border: 0;
 }
 
 /* Footer & Thank you */
 .footer {
   text-align: center;
-  padding: 2rem;
+  padding: 1.5rem 1rem;
   background: #f0fdfa;
   border-radius: 16px;
   margin-top: 2rem;
   color: #065f46;
+  font-size: 0.9rem;
+  line-height: 1.6;
 }
+
 .thank-you-simple {
   text-align: center;
-  font-size: 4.5rem;
+  font-size: 3.2rem;
   font-weight: 900;
   font-family: "Playfair Display", serif;
-  margin: 4rem 0 2rem;
+  margin: 3rem 0 1.5rem;
   background: linear-gradient(135deg, #047857, #34d399);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
   position: relative;
+  padding-bottom: 20px;
 }
+
 .thank-you-simple .underline {
   position: absolute;
   left: 50%;
-  bottom: 20px;
+  bottom: 8px;
   transform: translateX(-50%);
-  width: 60%;
-  height: 6px;
+  width: 55%;
+  height: 5px;
   background: #047857;
   border-radius: 3px;
 }
@@ -612,46 +710,262 @@ const vScrollAnimate = {
   transform: translateY(40px);
   transition: all 1s ease;
 }
+
 .scroll-anim.show {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Responsive */
+/* ==================== RESPONSIVE ==================== */
+
+/* Tablet */
 @media (max-width: 768px) {
+  .subtitle {
+    font-size: 1.1rem;
+    letter-spacing: 4px;
+  }
+
   .title {
-    font-size: 2.6rem;
+    font-size: 2.2rem;
   }
-  .birth-big {
-    font-size: 3rem;
+
+  .baby {
+    font-size: 1.8rem;
   }
-  .birth-year-big {
-    font-size: 4.5rem;
-  }
+
   .name-text {
-    font-size: 2.4rem;
-  }
-  .thank-you-simple {
-    font-size: 3rem;
-  }
-  .countdown-item {
-    min-width: 70px;
-    padding: 1.2rem 0.8rem;
-  }
-  .num {
     font-size: 2rem;
   }
+
+  .birth-title {
+    font-size: 1rem;
+  }
+
+  .birth-time {
+    font-size: 0.95rem;
+  }
+
+  .birth-big {
+    font-size: 2.6rem;
+  }
+
+  .slash {
+    font-size: 2rem;
+  }
+
+  .birth-year-big {
+    font-size: 3.5rem;
+  }
+
+  .thank-you-simple {
+    font-size: 2.6rem;
+  }
+
+  .gallery-track img {
+    height: 350px;
+  }
+
+  .message {
+    font-size: 0.95rem;
+  }
 }
+
+/* Smartphone */
 @media (max-width: 480px) {
+  .invite-root {
+    padding: 0;
+  }
+
+  .card {
+    border-radius: 0;
+  }
+
+  .hero {
+    padding: 2.5rem 1rem 2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    letter-spacing: 3px;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
   .triple-photo {
     gap: 0.5rem;
   }
+
   .photo-frame {
-    border-width: 8px;
-    border-bottom-width: 12px;
+    border-width: 6px;
+    border-bottom-width: 10px;
+    border-radius: 12px;
   }
+
   .photo-frame.middle {
     transform: translateY(-10px) scale(1.05);
+  }
+
+  .baby {
+    font-size: 1.6rem;
+  }
+
+  .baby-name-framed {
+    padding: 2rem 1rem;
+  }
+
+  .name-frame {
+    padding: 1.5rem 1rem;
+    border-width: 4px;
+  }
+
+  .name-text {
+    font-size: 1.8rem;
+  }
+
+  .content {
+    padding: 1rem 0.8rem 2.5rem;
+  }
+
+  .section-block {
+    padding: 1.2rem 0.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .birth-card {
+    padding: 1.5rem 1rem;
+  }
+
+  .birth-title {
+    font-size: 0.9rem;
+  }
+
+  .birth-time {
+    font-size: 0.85rem;
+  }
+
+  .birth-date-row {
+    gap: 0.8rem;
+  }
+
+  .birth-big {
+    font-size: 2.3rem;
+  }
+
+  .slash {
+    font-size: 1.8rem;
+    margin: 0 0.3rem;
+  }
+
+  .birth-year-big {
+    font-size: 3rem;
+  }
+
+  .calendar-grid {
+    gap: 4px;
+    padding: 0.8rem;
+  }
+
+  .day {
+    padding: 6px 0;
+    font-size: 0.85rem;
+  }
+
+  .countdown-grid {
+    gap: 0.5rem;
+  }
+
+  .countdown-item {
+    min-width: 65px;
+    padding: 1rem 0.6rem;
+  }
+
+  .num {
+    font-size: 1.8rem;
+  }
+
+  .label-small {
+    font-size: 0.7rem;
+  }
+
+  .gallery-track img {
+    height: 320px;
+  }
+
+  .prev,
+  .next {
+    width: 38px;
+    height: 38px;
+    font-size: 1.4rem;
+  }
+
+  .prev {
+    left: 8px;
+  }
+
+  .next {
+    right: 8px;
+  }
+
+  .location-box {
+    font-size: 0.9rem;
+    padding: 0.9rem;
+  }
+
+  .map-container iframe {
+    height: 200px;
+  }
+
+  .footer {
+    font-size: 0.85rem;
+    padding: 1.2rem 0.8rem;
+  }
+
+  .thank-you-simple {
+    font-size: 2.2rem;
+    margin: 2.5rem 0 1rem;
+  }
+
+  .message {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+}
+
+/* Smartphone nhỏ */
+@media (max-width: 360px) {
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .name-text {
+    font-size: 1.6rem;
+  }
+
+  .birth-big {
+    font-size: 2rem;
+  }
+
+  .birth-year-big {
+    font-size: 2.6rem;
+  }
+
+  .countdown-item {
+    min-width: 60px;
+    padding: 0.8rem 0.5rem;
+  }
+
+  .num {
+    font-size: 1.6rem;
+  }
+
+  .gallery-track img {
+    height: 280px;
+  }
+
+  .thank-you-simple {
+    font-size: 2rem;
   }
 }
 </style>
